@@ -15,7 +15,10 @@
   })
 
   cw1.addEventListener("click", function () {
-      
+    
+    const button = document.getElementById('cw1');
+    button.textContent = 'Loading...';
+
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
     .then(array => {
@@ -29,6 +32,7 @@
         `;
       })
       console.log(array)
+      button.textContent = 'Pobrano dane';
       answer.innerHTML = html;
     })
     
