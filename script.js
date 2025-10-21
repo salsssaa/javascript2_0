@@ -15,28 +15,24 @@
   })
 
   cw1.addEventListener("click", function () {
-    
     const button = document.getElementById('cw1');
     button.textContent = 'Loading...';
 
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then(array => {
-      let html = '';
-      array.forEach(post => {
-        html += `
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+      .then(response => response.json())
+      .then(post => {
+        const html = `
           <div class="post">
             <h3>${post.title}</h3>
             <p>${post.body}</p>
           </div>
         `;
+        console.log(post);
+        button.textContent = 'Pobrano dane';
+        answer.innerHTML = html;
       })
-      console.log(array)
-      button.textContent = 'Pobrano dane';
-      answer.innerHTML = html;
-    })
-    
-  })
+  });
+
 
   cw2.addEventListener("click", function () {
     //TODO
